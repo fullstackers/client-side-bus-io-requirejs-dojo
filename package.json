@@ -23,7 +23,7 @@
     },
     "homepage": "https://github.com/turbonetix/bus.io/issues",
     "devDependencies": {
-        "bus.io": "^0.4.1",
+        "bus.io": "^0.4",
         "express": "4.x"
     }
 }
