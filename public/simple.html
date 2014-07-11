@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bus.io Simple Chat Demo</title>
+        <script src="/bus.io/bus.io.js"></script>
+        <script>
+        window.onload = function() {
+            var client  = io.connect(),
+                chat    = document.getElementById("chat"),
+                msgs    = document.getElementById("msgs"),
+                sendBtn = document.getElementById("send");
+
+            // Handle clicks on the send button
+            sendBtn.addEventListener("click", function() {
+                var messageText = chat.value;
+            
+                // If the user didn't type anything in the chat input, return
+                if(!messageText) {
+                    return;
+                }
+
+                // Clear the chat input for the next message
+                chat.value = "";
+                
+                // Create a Bus.io message to send to other connected users
+                client
+                    .message()
+                    .action("user-message")
+                    .content(messageText)     
+                    .deliver();
+            });
+            
+            // When we receive a "user-message" event, 
+            // display the message on the page
+            client.on("user-message", function(message) {
+                var messageText = message.content(),
+                    li = document.createElement("li");
+
+                li.innerHTML = messageText;
+
+                // Add the message element to the DOM
+                msgs.appendChild(li);
+            });
+        };
+        </script>
+    </head>
+    <body>
+        <ul id="msgs"></ul>
+        <input id="chat" placeholder="Enter your message"/>
+        <button id="send">Send</button>
+    </body>
+</html>

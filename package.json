@@ -1,0 +1,29 @@
+{
+    "name": "client-side-bus-io-requirejs-dojo",
+    "version": "0.0.1",
+    "description": "Simple Bus.io demo using RequireJS and Dojo",
+    "main": "app.js",
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:turbonetix/client-side-bus-io-requirejs-dojo.git"
+    },
+    "keywords": [ 
+        "bus",
+        "io",
+        "socket.io",
+        "requirejs",
+        "dojo",
+        "client-side",
+        "client"
+    ],
+    "author": "Paul Forbes <paulforbes42@gmail.com>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/turbonetix/client-side-bus-io-requirejs-dojo/issues"
+    },
+    "homepage": "https://github.com/turbonetix/bus.io/issues",
+    "devDependencies": {
+        "bus.io": "^0.4.1",
+        "express": "4.x"
+    }
+}
